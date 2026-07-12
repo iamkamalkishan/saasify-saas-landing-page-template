@@ -439,3 +439,29 @@ createBackToTop();
 console.log('%c🚀 SaaSify Template', 'font-size: 24px; font-weight: bold; color: #6366f1;');
 console.log('%cBuilt with ❤️ for SaaS founders', 'font-size: 14px; color: #64748b;');
 console.log('%cInterested in the template? Contact us!', 'font-size: 12px; color: #94a3b8;');
+// Demo Section - Slide Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const demoBtns = document.querySelectorAll('.demo-btn');
+    const demoSlides = document.querySelectorAll('.demo-slide');
+    
+    demoBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const slideNum = this.getAttribute('data-slide');
+            
+            // Remove active from all buttons and slides
+            demoBtns.forEach(b => b.classList.remove('active'));
+            demoSlides.forEach(s => s.classList.remove('active'));
+            
+            // Add active to clicked button and corresponding slide
+            this.classList.add('active');
+            document.querySelector(`.demo-slide[data-slide="${slideNum}"]`).classList.add('active');
+        });
+    });
+    
+    // Auto-rotate slides every 5 seconds
+    let currentSlide = 1;
+    setInterval(() => {
+        currentSlide = currentSlide >= 3 ? 1 : currentSlide + 1;
+        document.querySelector(`.demo-btn[data-slide="${currentSlide}"]`).click();
+    }, 5000);
+});
