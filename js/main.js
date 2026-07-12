@@ -465,3 +465,109 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector(`.demo-btn[data-slide="${currentSlide}"]`).click();
     }, 5000);
 });
+
+// CTA Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaForm = document.querySelector('.cta-form');
+    if (ctaForm) {
+        const emailInput = ctaForm.querySelector('.cta-input');
+        const submitBtn = ctaForm.querySelector('.btn');
+        
+        submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!email) {
+                showNotification('Please enter your email address', 'error');
+                emailInput.focus();
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                emailInput.focus();
+                return;
+            }
+            
+            // Show loading state
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            this.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> Success!';
+                this.style.background = '#22c55e';
+                emailInput.value = '';
+                
+                showNotification('🎉 Welcome! Check your email for next steps.', 'success');
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '';
+                    this.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    }
+    
+    // Email validation function
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // Notification function
+    function showNotification(message, type) {
+        // Remove existing notification
+        const existing = document.querySelector('.notification');
+        if (existing) existing.remove();
+        
+        // Create notification
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span>${message}</span>
+                <button class="notification-close">&times;</button>
+            </div>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 400px;
+        `;
+        
+        if (type === 'success') {
+            notification.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+        } else {
+            notification.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Close button
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            notification.remove();
+        });
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+});
