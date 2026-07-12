@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaSify - Template Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .preview-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        p {
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+        }
+        
+        .feature-text {
+            font-size: 14px;
+            color: #475569;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+        
+        .price {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 16px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-card">
+        <div class="badge">🔥 NEW TEMPLATE</div>
+        <div class="logo">⚡</div>
+        <h1><span class="gradient-text">SaaSify</span> Template</h1>
+        <p>Modern, responsive SaaS landing page template. Build your landing page in minutes!</p>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Fully Responsive</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Modern Design</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Fast Loading</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Easy Customization</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">SEO Optimized</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Cross-Browser</span>
+            </div>
+        </div>
+        
+        <a href="index.html" class="btn btn-primary">View Live Demo →</a>
+        <p class="price">💰 Only ₹1,999</p>
+    </div>
+</body>
+</html>
